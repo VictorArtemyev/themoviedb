@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                tools:context="activity.MovieDetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_poster_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:maxHeight="150dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/example_image" />
+
+    <ImageView
+        android:id="@+id/iv_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="5dp"
+        android:maxHeight="20dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:contentDescription="star image"
+        android:src="@drawable/ic_star" />
+
+    <TextView
+        android:id="@+id/tv_vote_average"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_star"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/iv_star"
+        android:text="8.3 (463 votes)"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_below="@+id/iv_star"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:text="Status:"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_field_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_status"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/tv_status"
+        android:text="Released"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv_runtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_below="@+id/tv_status"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:text="Runtime:"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_field_runtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_runtime"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/tv_runtime"
+        android:text="169"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv_budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_below="@+id/tv_runtime"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:text="Budget:"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_field_budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_budget"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/tv_budget"
+        android:text="$200,000,000"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv_revenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_below="@+id/tv_budget"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:text="Revenue:"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_field_revenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_revenue"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/tv_revenue"
+        android:text="$621,752,480"
+        android:textSize="15dp" />
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_poster_image"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/iv_poster_image"
+        android:textStyle="bold"
+        android:text="Interstellar"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_poster_image"
+        android:layout_marginTop="20dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Overview" />
+
+            <TextView
+                android:id="@+id/tv_field_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Interstellar chronicles the adventures of a group of explorers." />
+
+            <TextView
+                android:id="@+id/tv_tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:text="Tagline" />
+
+            <TextView
+                android:id="@+id/tv_field_tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Mankind was born on Earth. It was never meant to die here." />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
