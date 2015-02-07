@@ -8,7 +8,7 @@
         android:id="@+id/tv_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="theMovie"
+        android:text="@string/themovie"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000" />
 

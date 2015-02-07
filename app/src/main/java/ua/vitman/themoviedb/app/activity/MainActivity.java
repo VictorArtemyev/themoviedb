@@ -22,8 +22,10 @@ import ua.vitman.themoviedb.app.fragment.MovieFragment;
 import java.util.ArrayList;
 
 
-public class MainActivity extends Activity implements ActionBar.TabListener, AdapterView.OnItemClickListener {
+public class MainActivity extends Activity implements ActionBar.TabListener,
+        AdapterView.OnItemClickListener {
 
+    public static final String MOVIE_ID = "movie_id";
     private static final String LOG_TAG = "log";
 
     private static final String TAB_POPULAR = "Popular";
@@ -46,37 +48,44 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Ada
     private void initActionBar() {
         mActionBar = getActionBar();
         if (mActionBar != null) {
-            mActionBar.setDisplayShowCustomEnabled(true);
-            mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
-            LayoutInflater inflater = (LayoutInflater) this
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.actionbar, null);
-            mActionBar.setCustomView(view);
-
-            AutoCompleteTextView autoCompleteMovieSearch = (AutoCompleteTextView) view
-                    .findViewById(R.id.ac_movie_search);
-            autoCompleteMovieSearch.setAdapter
-                    (new MoviesAutoCompleteAdapter(MainActivity.this, android.R.layout.simple_dropdown_item_1line));
-            autoCompleteMovieSearch.setOnItemClickListener(MainActivity.this);
+            setupMovieSearchActionBar();
             setupTabs();
         }
     }
 
+    private void setupMovieSearchActionBar() {
+        mActionBar.setDisplayShowCustomEnabled(true);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.actionbar, null);
+        mActionBar.setCustomView(view);
+
+        // Init autocomplete
+        AutoCompleteTextView autoCompleteMovieSearch =
+                (AutoCompleteTextView) view.findViewById(R.id.ac_movie_search);
+
+        autoCompleteMovieSearch.setAdapter
+                (new MoviesAutoCompleteAdapter(MainActivity.this,
+                        android.R.layout.simple_dropdown_item_1line));
+
+        autoCompleteMovieSearch.setOnItemClickListener(MainActivity.this);
+    }
+
     private void setupTabs() {
-//        init Popular tab
+        mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        // Init Popular tab
         ActionBar.Tab tab = mActionBar.newTab();
         tab.setText(TAB_POPULAR);
         tab.setTabListener(MainActivity.this);
         mActionBar.addTab(tab);
 
-//        init Upcoming tab
+        // Init Upcoming tab
         tab = mActionBar.newTab();
         tab.setText(TAB_UPCOMING);
         tab.setTabListener(MainActivity.this);
         mActionBar.addTab(tab);
 
-//        init Top tab
+        // Init Top tab
         tab = mActionBar.newTab();
         tab.setText(TAB_TOP);
         tab.setTabListener(MainActivity.this);
@@ -84,7 +93,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Ada
     }
 
     @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabSelected(ActionBar.Tab tab,
+                              FragmentTransaction fragmentTransaction) {
 
         String tabsName = (String) tab.getText();
 
@@ -102,12 +112,22 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Ada
     }
 
     @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabUnselected(ActionBar.Tab tab,
+                                FragmentTransaction fragmentTransaction) {
         fragmentTransaction.remove(mMovieFragment);
     }
 
     @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabReselected(ActionBar.Tab tab,
+                                FragmentTransaction fragmentTransaction) {
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView,
+                            View view, int position, long id) {
+        Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
+        intent.putExtra(MOVIE_ID, mMoviesId.get(position));
+        startActivity(intent);
     }
 
     private void initMovieFragment(String sortMovie) {
@@ -115,15 +135,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Ada
         mMovieFragment.setSortMovie(sortMovie);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
-        Log.i("log", mMoviesId.get(position));
-        intent.putExtra(MovieFragment.MOVIE_ID, mMoviesId.get(position));
-        startActivity(intent);
-    }
-
-    private class MoviesAutoCompleteAdapter extends ArrayAdapter<String> implements Filterable {
+    private class MoviesAutoCompleteAdapter extends
+            ArrayAdapter<String> implements Filterable {
         private ArrayList<String> resultList;
 
         public MoviesAutoCompleteAdapter(Context context, int textViewResourceId) {
@@ -177,7 +190,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Ada
         try {
             JSONArray predsJsonArray = mJsonObject.getJSONArray("results");
 
-            // Extract the Place descriptions from the results
+            // Extract movie title and id from the results
             resultList = new ArrayList<String>(predsJsonArray.length());
             moviesId = new ArrayList<String>(predsJsonArray.length());
             for (int i = 0; i < predsJsonArray.length(); i++) {

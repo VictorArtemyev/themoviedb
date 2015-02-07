@@ -16,12 +16,14 @@ public class TheMovieDBHttpClient {
         this.mAsyncHttpClient = new AsyncHttpClient();
     }
 
+    // http://api.themoviedb.org/3/movie/<sort movie>?apikey=<key>
     public void getMovies(String sortMovie, JsonHttpResponseHandler handler) {
         String url = getApiUrl(sortMovie);
         RequestParams params = new RequestParams("api_key", API_KEY);
         mAsyncHttpClient.get(url, params, handler);
     }
 
+    // "http://api.themoviedb.org/3/search/movie"?apikey=<key>&query=<query>
     public void searchMovie(String query, JsonHttpResponseHandler handler) {
         RequestParams params = new RequestParams("api_key", API_KEY);
         params.put("query", query);

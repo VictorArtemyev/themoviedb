@@ -15,7 +15,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import ua.vitman.themoviedb.app.R;
 import ua.vitman.themoviedb.app.TheMovieDBHttpClient;
-import ua.vitman.themoviedb.app.fragment.MovieFragment;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -55,7 +54,7 @@ public class MovieDetailActivity extends Activity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            mMovieId = "/" + intent.getStringExtra(MovieFragment.MOVIE_ID);
+            mMovieId = "/" + intent.getStringExtra(MainActivity.MOVIE_ID);
         }
         initViews();
         fetchMovies();
@@ -106,6 +105,7 @@ public class MovieDetailActivity extends Activity {
         }
     }
 
+    // Populate the data for the movie
     private void setupDetailMovieOnLayout() {
         mActionBar.setTitle(mTitle);
         Picasso.with(getApplicationContext()).load(mPosterImageUrl).into(mIvPosterImage);

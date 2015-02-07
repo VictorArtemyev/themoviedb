@@ -48,7 +48,7 @@
         android:layout_below="@+id/iv_star"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Status:"
+        android:text="@string/status"
         android:textSize="15dp"/>
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_below="@+id/tv_status"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Runtime:"
+        android:text="@string/runtime"
         android:textSize="15dp"/>
 
     <TextView
@@ -90,7 +90,7 @@
         android:layout_below="@+id/tv_runtime"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Budget:"
+        android:text="@string/budget"
         android:textSize="15dp"/>
 
     <TextView
@@ -101,7 +101,7 @@
         android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/tv_budget"
         android:text="$200,000,000"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_revenue"
@@ -111,8 +111,8 @@
         android:layout_below="@+id/tv_budget"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Revenue:"
-        android:textSize="15dp"/>
+        android:text="@string/revenue"
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/tv_field_revenue"
@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Overview" />
+                android:text="@string/overview" />
 
             <TextView
                 android:id="@+id/tv_field_overview"
@@ -167,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
-                android:text="Tagline" />
+                android:text="@string/tagline" />
 
             <TextView
                 android:id="@+id/tv_field_tagline"

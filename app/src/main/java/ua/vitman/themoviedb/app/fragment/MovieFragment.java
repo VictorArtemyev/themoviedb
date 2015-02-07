@@ -17,13 +17,12 @@ import ua.vitman.themoviedb.app.MovieDB;
 import ua.vitman.themoviedb.app.MoviesAdapter;
 import ua.vitman.themoviedb.app.R;
 import ua.vitman.themoviedb.app.TheMovieDBHttpClient;
+import ua.vitman.themoviedb.app.activity.MainActivity;
 import ua.vitman.themoviedb.app.activity.MovieDetailActivity;
 
 import java.util.ArrayList;
 
 public class MovieFragment extends android.app.Fragment {
-
-    public static final String MOVIE_ID = "movie_id";
 
     public static final String POPULAR = "/popular";
     public static final String TOP_RATED = "/top_rated";
@@ -38,7 +37,8 @@ public class MovieFragment extends android.app.Fragment {
     private ProgressDialog pDialog;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_movies, null);
     }
 
@@ -74,7 +74,6 @@ public class MovieFragment extends android.app.Fragment {
                     }
                     // Get the movies json array
                     items = response.getJSONArray("results");
-                    // Parse json array into array of model objects
                     ArrayList<MovieDB> movies = MovieDB.fromJson(items);
                     // Load model objects into the adapter which displays them
                     mAdapterMovies.addAll(movies);
@@ -90,7 +89,8 @@ public class MovieFragment extends android.app.Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View item, int position, long rowId) {
                 Intent intent = new Intent(getActivity(), MovieDetailActivity.class);
-                intent.putExtra(MovieFragment.MOVIE_ID, mAdapterMovies.getItem(position).getMovieId());
+                intent.putExtra(MainActivity.MOVIE_ID,
+                        mAdapterMovies.getItem(position).getMovieId());
                 startActivity(intent);
             }
         });

@@ -27,7 +27,6 @@
         android:maxHeight="20dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:contentDescription="star image"
         android:src="@drawable/ic_star" />
 
     <TextView
@@ -38,7 +37,7 @@
         android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/iv_star"
         android:text="8.3 (463 votes)"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_status"
@@ -48,8 +47,8 @@
         android:layout_below="@+id/iv_star"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Status:"
-        android:textSize="15dp"/>
+        android:text="@string/status"
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/tv_field_status"
@@ -59,7 +58,7 @@
         android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/tv_status"
         android:text="Released"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_runtime"
@@ -69,8 +68,8 @@
         android:layout_below="@+id/tv_status"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Runtime:"
-        android:textSize="15dp"/>
+        android:text="@string/runtime"
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/tv_field_runtime"
@@ -90,8 +89,8 @@
         android:layout_below="@+id/tv_runtime"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Budget:"
-        android:textSize="15dp"/>
+        android:text="@string/budget"
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/tv_field_budget"
@@ -101,7 +100,7 @@
         android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/tv_budget"
         android:text="$200,000,000"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_revenue"
@@ -111,8 +110,8 @@
         android:layout_below="@+id/tv_budget"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
-        android:text="Revenue:"
-        android:textSize="15dp"/>
+        android:text="@string/revenue"
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/tv_field_revenue"
@@ -122,7 +121,7 @@
         android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/tv_revenue"
         android:text="$621,752,480"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
 
     <TextView
@@ -134,7 +133,7 @@
         android:layout_toRightOf="@+id/iv_poster_image"
         android:textStyle="bold"
         android:text="Interstellar"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -152,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Overview" />
+                android:text="@string/overview" />
 
             <TextView
                 android:id="@+id/tv_field_overview"
@@ -167,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
-                android:text="Tagline" />
+                android:text="@string/tagline" />
 
             <TextView
                 android:id="@+id/tv_field_tagline"

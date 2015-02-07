@@ -14,8 +14,7 @@
         android:maxHeight="70dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:contentDescription="poster image"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/example_image" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -25,7 +24,7 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@+id/iv_poster_image"
         android:text="Interstellar"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_release_date"
@@ -36,8 +35,8 @@
         android:layout_marginLeft="5dp"
         android:lines="1"
         android:gravity="bottom"
-        android:text="Release Date:"
-        android:textSize="12dp" />
+        android:text="@string/release_date"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tv_date"
@@ -49,7 +48,7 @@
         android:lines="1"
         android:gravity="bottom"
         android:text="1987-12-27"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/iv_star"
@@ -57,11 +56,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tv_title"
         android:layout_below="@+id/tv_title"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="10dp"
         android:maxHeight="15dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:contentDescription="star image"
         android:src="@drawable/ic_star" />
 
     <TextView
@@ -72,6 +70,6 @@
         android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/iv_star"
         android:text="8.3 (463 votes)"
-        android:textSize="10dp" />
+        android:textSize="12sp" />
 
 </RelativeLayout>
