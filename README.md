@@ -1,4 +1,4 @@
-# teamvoy-task-themoviedb
+# themoviedb
 As a user I can view a list of popular/upcoming/top rated movies with a short info (title, date, image, etc)
 
 ![alt tag](https://github.com/vitnam/teamvoy-task-themoviedb/blob/master/app/screenshot_1.png)
