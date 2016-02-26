@@ -10,3 +10,7 @@ As a user I can select a movie from the list and view details about it
 As a user I can do search a movie
 
 ![alt tag](https://github.com/vitnam/teamvoy-task-themoviedb/blob/master/app/screenshot_3.png)
+
+As a user I can do search a movie
+
+![alt tag](https://github.com/vitnam/teamvoy-task-themoviedb/blob/master/app/screenshot_3.png)
